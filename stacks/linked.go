@@ -23,7 +23,7 @@ func (ls *LinkedStack) Pop() string {
 	return n.val
 }
 
-// Iter returns a channel that can be looped over
+// Iter returns a channel that can be iterated over
 func (ls *LinkedStack) Iter() <-chan string {
 	ch := make(chan string)
 	go func() {
@@ -48,7 +48,7 @@ func (ls LinkedStack) String() string {
 	n := ls.first
 	s := ""
 	for n != nil {
-		s += fmt.Sprintf("% 4s ", n.val)
+		s += fmt.Sprintf(" % 4s", n.val)
 		n = n.next
 	}
 	return s
