@@ -48,7 +48,7 @@ func (ls LinkedStack) String() string {
 	n := ls.first
 	s := ""
 	for n != nil {
-		s += fmt.Sprintf(" % 4s", n.val)
+		s += fmt.Sprintf("% -5s", n.val)
 		n = n.next
 	}
 	return s

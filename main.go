@@ -20,22 +20,26 @@ func main() {
 
 	ls := stacks.LinkedStack{}
 	as := stacks.ArrayStack{}
+	ds := stacks.DoublingStack{}
 	for _, op := range strings.Fields(string(input)) {
 		switch op {
 		case "-":
 			ls.Pop()
 			as.Pop()
+			ds.Pop()
 		default:
 			ls.Push(op)
 			as.Push(op)
+			ds.Push(op)
 		}
-		fmt.Printf("% 40s% 40s\n", ls, as)
+		fmt.Printf("% -30s| % -35s| % -35s\n", ls, as, ds)
 	}
 
-	fmt.Println("Flush stacks")
+	fmt.Println("\nFlush stacks")
 	lsCh := ls.Iter()
 	asCh := as.Iter()
+	dsCh := ds.Iter()
 	for i := 0; i < 5; i++ {
-		fmt.Printf("% 40s% 40s\n", <-lsCh, <-asCh)
+		fmt.Printf("% -30s| % -35s| % -35s\n", <-lsCh, <-asCh, <-dsCh)
 	}
 }
