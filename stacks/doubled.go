@@ -28,7 +28,7 @@ func (as *DoublingStack) Push(item string) {
 // Pop item from stack
 func (as *DoublingStack) Pop() string {
 	as.n--
-	if as.n < as.maxN/4 {
+	if as.n <= as.maxN/4 {
 		as.resize(as.maxN / 2)
 	}
 	return as.stack[as.n]
@@ -54,10 +54,10 @@ func (as DoublingStack) String() string {
 	s := ""
 	// s += fmt.Sprintf(" (%d,%d) ", as.n, as.maxN)
 	for i := 0; i < as.n; i++ {
-		s += fmt.Sprintf("% -5s", as.stack[as.n-i-1])
+		s += fmt.Sprintf("% -4s", as.stack[as.n-i-1])
 	}
 	for i := 0; i < as.maxN-as.n; i++ {
-		s += fmt.Sprintf("% -5s", ".")
+		s += fmt.Sprintf("% -4s", ".")
 	}
 
 	return s

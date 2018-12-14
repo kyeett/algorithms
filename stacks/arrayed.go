@@ -42,10 +42,10 @@ func (as ArrayStack) String() string {
 	s := ""
 	// s += fmt.Sprintf("(%d,%d) ", as.n, maxN)
 	for i := 0; i < as.n; i++ {
-		s += fmt.Sprintf("% -5s", as.stack[as.n-i-1])
+		s += fmt.Sprintf("% -4s", as.stack[as.n-i-1])
 	}
 	for i := 0; i < maxN-as.n; i++ {
-		s += fmt.Sprintf("% -5s", ".")
+		s += fmt.Sprintf("% -4s", ".")
 	}
 
 	return s
